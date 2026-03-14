@@ -15,7 +15,7 @@ public class AIService {
     @Value("${gemini.api.key}")
     private String apiKey;
 
-    public String getAPIResponse(String question) {
+    public String getAIResponse(String question) {
         try {
             String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key="
                     + apiKey;
