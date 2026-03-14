@@ -8,6 +8,7 @@ public class AIService {
         try{
             String url = "";
             RestTemplate restTemplate = new RestTemplate();
+            
         }
     }
 }
