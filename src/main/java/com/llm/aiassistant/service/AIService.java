@@ -1,6 +1,7 @@
 package com.llm.aiassistant.service;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -9,12 +10,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 public class AIService {
-    private final String API_KEY = "YOUR_GEMINI_API_KEY";
+
+    
+    @Value("${gemini.api.key}")
+    private String apiKey;
 
     public String getAPIResponse(String question) {
         try {
             String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key="
-                    + API_KEY;
+                    + apiKey;
             RestTemplate restTemplate = new RestTemplate();
             JSONObject reqBody = new JSONObject();
             reqBody.put("contents", new Object[] {
